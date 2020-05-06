@@ -1,0 +1,16 @@
+{
+  "name": "28_Websocket_ToDo",
+  "version": "1.0.0",
+  "description": "A simple to-do list application",
+  "main": "server.js",
+  "author": "Pan Wojti",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "socket.io": "2.2.0"
+  }
+}
