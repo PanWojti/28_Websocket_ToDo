@@ -25,13 +25,15 @@ const tasks = [];
 
 io.on('connection', (socket) => {
   console.log('New client! Its id – ' + socket.id);
-  socket.broadcast.to(socket.id).emit('updateData', tasks);
+  socket.emit('updateData', tasks);
   socket.on('addTask', (taskName) => {
     tasks.push(taskName);
-    socket.broadcast.emit('addTask', taskname);
+    console.log('tasks: ', tasks);
+    socket.broadcast.emit('addTask', taskName);
   });
-  socket.on('removeTask', (index) => {
-    tasks.splice(index, 1);
-    socket.broadcast.emit('removeTask', index);
+  socket.on('removeTask', (id) => {
+    tasks.splice(id, 1);
+    console.log('tasks: ', tasks);
+    socket.broadcast.emit('removeTask', id, 'emitted');
   });
 });
